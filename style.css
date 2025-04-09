@@ -12,6 +12,8 @@ body{
     height: 100vh;
     background-color: white;
     color: black;
+    font-size: 14px;
+    font-weight: lighter;
 
 }
 .main-body{
@@ -25,20 +27,32 @@ body{
     flex-direction: column; /* Stack items vertically */
     width: 20%;
     justify-content: flex-start; /* Align items to the top */
-    align-items: center; /* Center items horizontally */
+    align-items: center;
+    padding-top: 15px;
+    padding-left: 10px;
+    background-color: #fcfaf8;
+    /* Center items horizontally */
     /* padding: 10px; Optional: Add some padding */
-    border: 1px solid black;
 }
 
 .profile-pic{
     display: flex;
-    width: 100%;
+    width: 50%;
     padding-left: 10px;
+    margin-right: 125px;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.profile-pic:hover{
+    background-color: #c1c1c12d;
+    font-weight: bolder;
 }
 
 .profile-pic span{
     display: flex;
     align-items: center;
+    font-weight: 450;
 }
 
 .profile-pic span .material-icons{
@@ -47,26 +61,26 @@ body{
 
 .profile-pic img{
     border-radius: 100%;
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     margin-right: 10px;
-    margin-top: 4px;
-    margin-bottom:4px;
+    margin-top: 6px;
+    margin-bottom:6px;
 }
 
 .menu-item{
     display: flex;
     align-items: center;
-    padding: 10px 0px 10px 10px;
+    padding: 2px 0px 2px 10px;
     width: 100%;
-    border-radius: 1.5rem;
+    border-radius: 1rem;
     margin-top: 5px;
     cursor: pointer;
 
 }
 
 .menu-item:hover{
-    background-color: rgba(211, 150, 160, 0.521);
+    background-color: #c1c1c12d;
     font-weight: bolder;
 }
 
@@ -80,7 +94,11 @@ body{
 
 .active{
     color: red;
-    background-color: rgba(211, 150, 160, 0.521);
+    background-color: rgba(211, 150, 160, 0.322);
+}
+
+.my-projects{
+    width: 100%;
 }
 
 .list-section{
@@ -97,12 +115,12 @@ body{
     margin-top: 40px;
 }
 
-.title-section{
+.today-section{
     padding: 5px;
     margin-bottom: 10px;
 }
 
-.input-section input{
+/* .title-section input{
     width: 90%;
     margin-left: 5px;
     font-weight: bold;
@@ -110,17 +128,33 @@ body{
     border: none;
     outline: none;
 
-}
+} */
 
 ::placeholder{
     padding-left: 5px;
     border: none;
     
 }
+
+.the-todos{
+    display: flex;
+    flex-direction: column;
+}
+
+.new-todo {
+    display: none;
+}
+.new-todo input{
+    width: 100%;
+    border: none;
+    outline: none;
+}
 .new-task{
     width: 90%;
     height: 10px;
     margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .addTaskBtn{
@@ -137,5 +171,26 @@ body{
 
 .addTaskBtn:hover{
     background-color: rgba(211, 150, 160, 0.521);
+}
+
+.saveTaskBtn {
+    display: none;
+}
+
+.saveTaskBtn{
+    width: 120px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 1.5rem;
+    border: none;
+    background-color: rgba(211, 150, 160, 0.521);
+}
+
+.saveTaskBtn:hover{
+    border: 1px solid black;
+    font-weight: bold;
 }
 
