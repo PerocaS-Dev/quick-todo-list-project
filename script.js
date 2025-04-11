@@ -88,12 +88,35 @@ class App{
 
         //Toggle the completed property
         task.completed = true;
+        radioIcon.addEventListener("click", () => this.uncompleteTask(task.id));
 
         //HAS TO REMOVE THE UNCHECKED RADIO AND ADD NEW CHECKED RADIO
         //SCRATCH OUT THE TEXT
         //MAYBE EVEN CHANGR TEST COLOR TO GREY
 
+    }
 
+    uncompleteTask(taskID){
+
+        const selectedTask = this.$taskList.querySelector(`[data-id="${taskID}"]`);
+
+        const radioIcon = selectedTask.querySelector('.task-check');
+
+        const taskInfo = selectedTask.querySelector('.task-text');
+
+        radioIcon.textContent = "radio_button_unchecked";
+
+        taskInfo.style.textDecoration = "none";
+        taskInfo.style.color = "black";
+        
+        const task = this.tasks.find(t => t.id === taskID);
+        if (!task) {
+            console.log("Task object not found for ID:", taskID);
+            return;
+        }
+
+        task.completed = false;
+        radioIcon.addEventListener("click", () => this.completeTask(task.id));
 
     }
 
@@ -128,13 +151,19 @@ class App{
             text.classList.add("task-text");
             text.style.textDecoration = task.completed ? "line-through" : "none";
             text.style.color = task.completed ? "grey" : "black";
+
+            const bin = document.createElement("i");
+            bin.classList.add("material-icons", "bin-button");
+            bin.textContent = "delete_outline";
     
             li.appendChild(radio);
             li.appendChild(text);
+            li.appendChild(bin);
             this.$taskList.appendChild(li);
     
             //Add event listener to handle completion
             radio.addEventListener("click", () => this.completeTask(task.id));
+            bin.addEventListener("click", () => this.deleteTask(task.id))
         });
     }
 
@@ -156,6 +185,18 @@ class App{
     
         this.render(); //show it on screen
     }
+
+    editTask(taskID){
+
+
+    }
+
+    deleteTask(taskID){
+        this.tasks = this.tasks.filter((task) =>
+            task.id != taskID);
+        this.render();
+    }
+
 
 }
 
